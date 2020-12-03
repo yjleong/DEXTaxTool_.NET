@@ -4,17 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace User_Input
 {
     public class ConsoleInput : IUserInput
     {
         private string apiKey;
         private string ethAddress;
+        private BlockExplorerEnum blkExpl;
         public string ApiKey
         {
             get
             {
                 return apiKey;
+            }
+        }
+
+        public BlockExplorerEnum BlkExpl
+        {
+            get
+            {
+                return blkExpl;
             }
         }
 
@@ -30,7 +40,9 @@ namespace User_Input
         {
             Console.WriteLine("Input valid Ethereum address:");
             ethAddress = Console.ReadLine();
-            Console.WriteLine("Input valid API Etherscan API key");
+            Console.WriteLine("EtherScan is only block explorer supported");
+            blkExpl = BlockExplorerEnum.EtherScan;
+            Console.WriteLine("Input valid API EtherScan API key");
             apiKey = Console.ReadLine();
         }
     }

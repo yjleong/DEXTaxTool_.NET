@@ -10,6 +10,7 @@ namespace User_Input
     {
         string EthAddress { get; }
         string ApiKey { get;}
+        BlockExplorerEnum BlkExpl { get; }
         void SetUserInput();
     }
 }

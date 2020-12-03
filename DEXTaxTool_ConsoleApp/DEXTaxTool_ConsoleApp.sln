@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEXTaxTool_ConsoleApp", "DE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User_Input", "ClassLibrary1\User_Input.csproj", "{5BB12D57-C7C2-437F-9667-D6C48FDAD867}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxnParser", "ClassLibrary2\TxnParser.csproj", "{54594D87-7A7B-4D20-8A39-9324DD6E60AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5BB12D57-C7C2-437F-9667-D6C48FDAD867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BB12D57-C7C2-437F-9667-D6C48FDAD867}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BB12D57-C7C2-437F-9667-D6C48FDAD867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54594D87-7A7B-4D20-8A39-9324DD6E60AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54594D87-7A7B-4D20-8A39-9324DD6E60AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54594D87-7A7B-4D20-8A39-9324DD6E60AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54594D87-7A7B-4D20-8A39-9324DD6E60AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
