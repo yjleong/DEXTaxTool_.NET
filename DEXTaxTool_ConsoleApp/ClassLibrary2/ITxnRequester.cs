@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace User_Input
+namespace TxnParser
 {
-    //Supproted block explorers
-    public enum BlockExplorerEnum
+    public interface ITxnRequester
     {
-        EtherScan
+        string GetTxns(string URI);
     }
 }
