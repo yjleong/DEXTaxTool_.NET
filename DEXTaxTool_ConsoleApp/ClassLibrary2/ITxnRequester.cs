@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserInput;
+using BlockExplorerInfo;
 
-namespace TxnParser
+namespace Parser
 {
     public interface ITxnRequester
     {

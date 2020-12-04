@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Parser
 {
-    public interface ITxn
+    class Class1
     {
-
-        
     }
 }

@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\TxnParser.csproj">
+    <ProjectReference Include="..\ClassLibrary2\Parser.csproj">
       <Project>{54594d87-7a7b-4d20-8a39-9324dd6e60ae}</Project>
-      <Name>TxnParser</Name>
+      <Name>Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

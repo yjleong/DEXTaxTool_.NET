@@ -7,7 +7,7 @@
     <ProjectGuid>{54594D87-7A7B-4D20-8A39-9324DD6E60AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TxnParser</RootNamespace>
+    <RootNamespace>Parser</RootNamespace>
     <AssemblyName>TxnParser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,13 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="TxnParserDepsFactoryProvider.cs" />
+    <Compile Include="EtherScanFactory.cs" />
     <Compile Include="EtherScanTxnRequester.cs" />
+    <Compile Include="ITxnParserDepsFactory.cs" />
     <Compile Include="ITxnMapper.cs" />
     <Compile Include="ITxn.cs" />
     <Compile Include="ITxnRequester.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="TxnParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TxnType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\UserInput.csproj">
@@ -56,6 +59,10 @@
     <ProjectReference Include="..\ClassLibrary3\BlockExplorerInfo.csproj">
       <Project>{b8eede40-8f94-43de-8571-e5f05a4c5be6}</Project>
       <Name>BlockExplorerInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary4\HTTPClientProvider.csproj">
+      <Project>{2282eaf3-9a26-45e3-b682-60feebc13cc4}</Project>
+      <Name>HTTPClientProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

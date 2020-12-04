@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TxnParser;
+using Parser;
 
 namespace UnitTestProject1
 {

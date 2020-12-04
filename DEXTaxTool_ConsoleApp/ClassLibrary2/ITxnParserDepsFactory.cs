@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Parser
 {
-    public interface ITxn
+    //need renaming
+    public interface ITxnParserDepsFactory
     {
-
-        
+        ITxnMapper GetTxnMapper();
+        ITxnRequester GetTxnRequester();
     }
 }

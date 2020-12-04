@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace BlockExplorerInfo
 {
-    public static class BlockExplorerURL
+    public class BlockExplorerURL
     {
-        public static Dictionary<BlockExplorerEnum, string> BlockExplorerURLDict;
+        public Dictionary<BlockExplorerEnum, Dictionary<TxnTypeEnum, string>> BlockExplorerURLDict;
 
         // TODO:
         // Get URL's from DB in future 
-        static BlockExplorerURL()
+        public BlockExplorerURL()
         {
-            BlockExplorerURLDict.Add(BlockExplorerEnum.EtherScan, "http://api.etherscan.io/api?module=account&action=");
+            var etherScanURL = new Dictionary<TxnTypeEnum, string>();
+            etherScanURL.Add(TxnTypeEnum.Normal,"http://api.etherscan.io/api?module=account&action=txlist&address=<ETHAddressHere>&startblock=0&endblock=99999999&sort=asc&apikey=<APIKeyHere>");
+            etherScanURL.Add(TxnTypeEnum.ERC20, "http://api.etherscan.io/api?module=account&action=tokentx&address=<ETHAddressHere>&startblock=0&endblock=999999999&sort=asc&apikey=<APIKeyHere>");
+            etherScanURL.Add(TxnTypeEnum.Internal, "http://api.etherscan.io/api?module=account&action=txlistinternal&address=<ETHAddressHere>&startblock=0&endblock=99999999&sort=asc&apikey=<APIKeyHere>");
+            BlockExplorerURLDict.Add(BlockExplorerEnum.EtherScan,etherScanURL);
         }
     }
 }

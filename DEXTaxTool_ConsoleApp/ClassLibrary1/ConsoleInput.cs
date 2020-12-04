@@ -39,6 +39,8 @@ namespace UserInput
 
         public void SetUserInput()
         {
+            //TODO:
+            //add checks for valid address and api key
             Console.WriteLine("Input valid Ethereum address:");
             ethAddress = Console.ReadLine();
             Console.WriteLine("EtherScan is only block explorer supported");
