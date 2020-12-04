@@ -41,11 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EtherScanTxnRequester.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="ITxnMapper.cs" />
     <Compile Include="ITxn.cs" />
     <Compile Include="ITxnRequester.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TxnType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\UserInput.csproj">

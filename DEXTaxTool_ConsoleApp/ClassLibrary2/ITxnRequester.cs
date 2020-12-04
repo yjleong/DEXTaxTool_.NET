@@ -9,6 +9,6 @@ namespace TxnParser
 {
     public interface ITxnRequester
     {
-        string GetTxns();
+        string GetTxns(TxnTypeEnum txnTypeEnum);
     }
 }

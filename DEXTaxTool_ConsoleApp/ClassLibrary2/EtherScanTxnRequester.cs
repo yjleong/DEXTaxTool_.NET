@@ -18,7 +18,7 @@ namespace TxnParser
             this.userInput = userInput;
         }
 
-        public string GetTxns()
+        public string GetTxns(TxnTypeEnum txnTypeEnum)
         {
             string URI = ""; 
             throw new NotImplementedException();

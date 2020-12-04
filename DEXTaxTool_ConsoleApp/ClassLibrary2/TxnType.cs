@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TxnParser
 {
-    public interface ITxn
-    {
-
-        
-    }
+        public enum TxnTypeEnum
+        {
+            Normal,
+            ERC20,
+            Internal
+        }
 }

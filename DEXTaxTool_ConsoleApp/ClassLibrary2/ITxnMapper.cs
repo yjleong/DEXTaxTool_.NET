@@ -8,6 +8,6 @@ namespace TxnParser
 {
     public interface ITxnMapper
     {
-        string MapToTxn(string str);
+        ITxn[] MapToTxn(string str);
     }
 }

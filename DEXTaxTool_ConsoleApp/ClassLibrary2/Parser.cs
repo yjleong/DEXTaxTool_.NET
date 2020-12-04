@@ -10,14 +10,20 @@ namespace TxnParser
     class Parser
     {
         private ITxnRequester txnRequester;
-        public Parser(ITxnRequester txnRequester)
+        private ITxnMapper txnMapper;
+        public Parser(ITxnRequester txnRequester, ITxnMapper txnMapper)
         {
             this.txnRequester = txnRequester;
+            this.txnMapper = txnMapper;
         }
 
-        public ITxn deserializeJSON()
+        public Dictionary<TxnTypeEnum ,List<ITxn>> deserializeJSON()
         {
-            var JSONstr = txnRequester.GetTxns();
+            var normalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Normal);
+            var erc20TxnStr = txnRequester.GetTxns(TxnTypeEnum.ERC20);
+            var internalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Internal);
+            //then use mapper to get ITxn[] back
+
             throw new NotImplementedException();
         }
             
