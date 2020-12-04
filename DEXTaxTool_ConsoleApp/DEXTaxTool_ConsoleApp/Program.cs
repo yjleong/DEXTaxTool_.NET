@@ -17,7 +17,7 @@ namespace DEXTaxTool_ConsoleApp
             var blkExplURL = new BlockExplorerURL();
             IUserInput userInput = new ConsoleInput();
             userInput.SetUserInput();
-            ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput);
+            ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
             var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
             //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
 

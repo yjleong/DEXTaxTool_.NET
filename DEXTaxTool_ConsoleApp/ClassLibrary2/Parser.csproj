@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EtherScanTxnMapper.cs" />
     <Compile Include="TxnParserDepsFactoryProvider.cs" />
     <Compile Include="EtherScanFactory.cs" />
     <Compile Include="EtherScanTxnRequester.cs" />

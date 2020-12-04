@@ -8,6 +8,9 @@ using BlockExplorerInfo;
 
 namespace Parser
 {
+    /// <summary>
+    /// Parser object that gets all required transactions from block explorer with HTTP GET and parses them into ITxn objects 
+    /// </summary>
     public class TxnParser
     {
         private ITxnRequester txnRequester;
@@ -18,9 +21,9 @@ namespace Parser
             this.txnMapper = txnMapper;
         }
 
-        public Dictionary<TxnTypeEnum ,List<ITxn>> deserializeJSON()
+        public Dictionary<TxnTypeEnum ,List<ITxnMapper>> deserializeJSON()
         {
-            var txnDict = new Dictionary<TxnTypeEnum, List<ITxn>>();
+            var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
             string normalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Normal);
             string erc20TxnStr = txnRequester.GetTxns(TxnTypeEnum.ERC20);
             string internalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Internal);
