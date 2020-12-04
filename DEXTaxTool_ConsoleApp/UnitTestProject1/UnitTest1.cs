@@ -5,7 +5,7 @@ using Parser;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class TxnParserTests
+    public class ParserTests
     {
         [TestMethod]
         public void TestMethod1()

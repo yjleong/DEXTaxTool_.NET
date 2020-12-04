@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInput", "ClassLibrary1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "ClassLibrary2\Parser.csproj", "{54594D87-7A7B-4D20-8A39-9324DD6E60AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxnParserTests", "UnitTestProject1\TxnParserTests.csproj", "{A70EA6AA-052F-4527-951C-5D9886A86821}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserTests", "UnitTestProject1\ParserTests.csproj", "{A70EA6AA-052F-4527-951C-5D9886A86821}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockExplorerInfo", "ClassLibrary3\BlockExplorerInfo.csproj", "{B8EEDE40-8F94-43DE-8571-E5F05A4C5BE6}"
 EndProject
