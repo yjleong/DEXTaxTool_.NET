@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using User_Input;
+using UserInput;
 
 namespace TxnParser
 {
     class Parser
     {
-        private IUserInput userInput;
-
         private ITxnRequester txnRequester;
-        public Parser(IUserInput userInput, ITxnRequester txnRequester)
+        public Parser(ITxnRequester txnRequester)
         {
-            this.userInput = userInput;
             this.txnRequester = txnRequester;
         }
 
-        public ITxn deserializeJSON(string JSON)
+        public ITxn deserializeJSON()
         {
-            var URI = "";
-            var JSONstr = txnRequester.GetTxns(URI);
+            var JSONstr = txnRequester.GetTxns();
             throw new NotImplementedException();
         }
             

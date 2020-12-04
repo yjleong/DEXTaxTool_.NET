@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BlockExplorerInfo;
 
-namespace User_Input
+namespace UserInput
 {
     public interface IUserInput
     {

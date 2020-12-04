@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BlockExplorerInfo;
 
 
-namespace User_Input
+namespace UserInput
 {
     public class ConsoleInput : IUserInput
     {

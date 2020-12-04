@@ -7,8 +7,8 @@
     <ProjectGuid>{54594D87-7A7B-4D20-8A39-9324DD6E60AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary2</RootNamespace>
-    <AssemblyName>ClassLibrary2</AssemblyName>
+    <RootNamespace>TxnParser</RootNamespace>
+    <AssemblyName>TxnParser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,15 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EtherScanTxnRequester.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="ITxn.cs" />
     <Compile Include="ITxnRequester.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\User_Input.csproj">
+    <ProjectReference Include="..\ClassLibrary1\UserInput.csproj">
       <Project>{5bb12d57-c7c2-437f-9667-d6c48fdad867}</Project>
-      <Name>User_Input</Name>
+      <Name>UserInput</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClassLibrary3\BlockExplorerInfo.csproj">
       <Project>{b8eede40-8f94-43de-8571-e5f05a4c5be6}</Project>

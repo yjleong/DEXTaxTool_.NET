@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEXTaxTool_ConsoleApp", "DEXTaxTool_ConsoleApp\DEXTaxTool_ConsoleApp.csproj", "{4CAEFCB5-FCD0-4A2F-890F-C13B0F997479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User_Input", "ClassLibrary1\User_Input.csproj", "{5BB12D57-C7C2-437F-9667-D6C48FDAD867}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInput", "ClassLibrary1\UserInput.csproj", "{5BB12D57-C7C2-437F-9667-D6C48FDAD867}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TxnParser", "ClassLibrary2\TxnParser.csproj", "{54594D87-7A7B-4D20-8A39-9324DD6E60AE}"
 EndProject

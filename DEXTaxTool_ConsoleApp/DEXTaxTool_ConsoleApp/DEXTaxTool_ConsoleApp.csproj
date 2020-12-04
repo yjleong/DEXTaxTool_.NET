@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\User_Input.csproj">
+    <ProjectReference Include="..\ClassLibrary1\UserInput.csproj">
       <Project>{5bb12d57-c7c2-437f-9667-d6c48fdad867}</Project>
-      <Name>User_Input</Name>
+      <Name>UserInput</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,8 +7,8 @@
     <ProjectGuid>{B8EEDE40-8F94-43DE-8571-E5F05A4C5BE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary3</RootNamespace>
-    <AssemblyName>ClassLibrary3</AssemblyName>
+    <RootNamespace>BlockExplorerInfo</RootNamespace>
+    <AssemblyName>BlockExplorerInfo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
