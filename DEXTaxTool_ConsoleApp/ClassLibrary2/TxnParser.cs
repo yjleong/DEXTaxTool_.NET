@@ -21,16 +21,61 @@ namespace Parser
             this.txnMapper = txnMapper;
         }
 
-        public Dictionary<TxnTypeEnum ,List<ITxnMapper>> deserializeJSON()
+        public Dictionary<TxnTypeEnum, List<ITxn>> deserializeJSON()
         {
-            var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
-            string normalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Normal);
-            string erc20TxnStr = txnRequester.GetTxns(TxnTypeEnum.ERC20);
-            string internalTxnStr = txnRequester.GetTxns(TxnTypeEnum.Internal);
-            //then use mapper to get ITxn[] back
-            //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
-            throw new NotImplementedException();
+            try
+            {
+                var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
+                var taskList = new List<Task<string>>();
+                foreach (TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
+                {
+                    taskList.Add(txnRequester.GetTxnsAsync(txnType));
+                }
+                var result = Task.WhenAll(taskList).Result;
+                foreach(var res in result)
+                {
+
+                }
+                //then use mapper to get ITxn[] back
+
+                //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
+                throw new NotImplementedException();
+            }
+            catch (ArgumentException e) when (e.ParamName != "HttpRequestException")
+            {
+                //handle exception better
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine($"Message :{e.Message} ");
+                throw e;
+            }
         }
-            
+
+        public Task deserializeJSON_testing ()
+        {
+            try
+            {
+                var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
+                var taskList = new List<Task<string>>();
+                foreach (TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
+                {
+                    taskList.Add(txnRequester.GetTxnsAsync(txnType));
+                }
+
+                //then use mapper to get ITxn[] back
+
+                //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
+                throw new NotImplementedException();
+            }
+            catch (ArgumentException e) when (e.ParamName != "HttpRequestException")
+            {
+                //handle exception better
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine($"Message :{e.Message} ");
+                throw e;
+            }
+        }
+
+
+
     }
 }

@@ -13,7 +13,7 @@ namespace Parser
     class EtherScanTxnMapper : ITxnMapper
     {
 
-        public ITxnMapper[] MapToTxn(TxnTypeEnum txnTypeEnum, string JSONstr)
+        public ITxn[] MapToTxn(TxnTypeEnum txnTypeEnum, string JSONstr)
         {
             switch (txnTypeEnum)
             {

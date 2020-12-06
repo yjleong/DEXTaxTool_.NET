@@ -10,6 +10,6 @@ namespace Parser
 {
     public interface ITxnRequester
     {
-        string GetTxns(TxnTypeEnum txnTypeEnum);
+        Task<string> GetTxnsAsync(TxnTypeEnum txnTypeEnum);
     }
 }

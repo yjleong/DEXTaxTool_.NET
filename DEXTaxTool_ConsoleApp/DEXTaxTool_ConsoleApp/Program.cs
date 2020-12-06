@@ -13,14 +13,23 @@ namespace DEXTaxTool_ConsoleApp
     {
         static void Main(string[] args)
         {
-            //require some input to enable End to End run with default values? 
-            var blkExplURL = new BlockExplorerURL();
-            IUserInput userInput = new ConsoleInput();
-            userInput.SetUserInput();
-            ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
-            var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
-            //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
-
+            try
+            {
+                //require some input to enable End to End run with default values? 
+                //Include some JSON deserializer that can read the values and load it into ConsoleInput
+                var blkExplURL = new BlockExplorerURL();
+                IUserInput userInput = new ConsoleInput();
+                userInput.SetUserInput();
+                ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
+                var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
+                //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
+                Dictionary<TxnTypeEnum, List<ITxn>> txns = txnParser.deserializeJSON();
+            }
+            catch (Exception e)
+            {
+                //Handle exception better 
+                Console.WriteLine($"Exiting programm Last exception is message :{e.Message} ");
+            }
         }
     }
 }
