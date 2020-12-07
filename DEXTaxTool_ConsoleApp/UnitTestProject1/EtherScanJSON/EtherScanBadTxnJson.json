@@ -1,0 +1,12 @@
+﻿{
+  "status": "1",
+  "message": "OK",
+  "result": [
+    {
+      "bad json": "bad Json"
+    },
+    {
+      "bad json": "bad Json"
+    }
+  ]
+}

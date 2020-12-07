@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestEtherScanTxnProvider.cs" />
     <Compile Include="ParserUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUserInput.cs" />
@@ -78,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EtherScanJSON\EtherScanNormalTxns.json" />
+    <None Include="EtherScanJSON\EtherScanErc20Txns.json" />
+    <None Include="EtherScanJSON\EtherScanInternalTxns.json" />
+    <None Include="EtherScanJSON\EtherScanBadTxnJson.json" />
     <None Include="EtherScanJSON\UserInputEtherScan.json" />
     <None Include="packages.config" />
   </ItemGroup>

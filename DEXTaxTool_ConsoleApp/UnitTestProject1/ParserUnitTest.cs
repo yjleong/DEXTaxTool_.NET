@@ -36,21 +36,56 @@ namespace UnitTestProject1
             txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal,contents);
             //Might be better to compare to a mock ITxn[]?
             Assert.IsTrue(txns.Length != 0);
-            
+        }
+        [TestMethod]
+        public void EtherScanTxnMapper_BadJson_NormalTxnMap()
+       {
+            //try
+            //{
+            //    var ethScanTxnMapper = new EtherScanTxnMapper();
+            //    string contents;
+            //    using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanBadTxnJson.json"))
+            //    {
+            //        contents = file.ReadToEnd();
+            //    }
+            //    var txns = new ITxn[0];
+            //    txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal, contents);
+            //    throw new Exception("Exception: Mapped bad JSON to ITxn");
+            //}
+            //catch (Exception e)
+            //{
+            //    Assert.IsTrue(true);
+            //}
         }
 
         [TestMethod]
         public void EtherScanTxnMapper_Successful_Erc20TxnMap()
         {
-
-
+            var ethScanTxnMapper = new EtherScanTxnMapper();
+            string contents;
+            using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanErc20Txns.json"))
+            {
+                contents = file.ReadToEnd();
+            }
+            var txns = new ITxn[0];
+            txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Erc20, contents);
+            //Might be better to compare to a mock ITxn[]?
+            Assert.IsTrue(txns.Length != 0);
         }
 
         [TestMethod]
         public void EtherScanTxnMapper_Successful_InternalTxnMap()
         {
-
-
+            var ethScanTxnMapper = new EtherScanTxnMapper();
+            string contents;
+            using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanInternalTxns.json"))
+            {
+                contents = file.ReadToEnd();
+            }
+            var txns = new ITxn[0];
+            txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Erc20, contents);
+            //Might be better to compare to a mock ITxn[]?
+            Assert.IsTrue(txns.Length != 0);
         }
 
 
