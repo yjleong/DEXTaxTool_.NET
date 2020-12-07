@@ -12,7 +12,7 @@ namespace UserInput
     {
         private string apiKey;
         private string ethAddress;
-        private BlockExplorerEnum blkExpl;
+        private string blkExpl;
         private Dictionary<string, BlockExplorerEnum> enumDict;
         public string ApiKey
         {
@@ -22,7 +22,7 @@ namespace UserInput
             }
         }
 
-        public BlockExplorerEnum BlkExpl
+        public string BlkExpl
         {
             get
             {
@@ -39,7 +39,7 @@ namespace UserInput
         }
         public ConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict)
         {
-            this.enumDict = blkExplDict;
+            enumDict = blkExplDict;
         }
 
         public void SetUserInput()
@@ -54,15 +54,14 @@ namespace UserInput
                 Console.WriteLine(kvp.Key);
             }
             var tmpStr = Console.ReadLine();
-            BlockExplorerEnum tmpEnum;
-            if (enumDict.TryGetValue(tmpStr, out tmpEnum))
+            if (enumDict.ContainsKey(tmpStr))
             {
-                blkExpl = tmpEnum;
+                blkExpl = tmpStr;
             }
             else
             {
                 Console.WriteLine("Input not recognized. Defaulting to EtherScan");
-                blkExpl = BlockExplorerEnum.EtherScan;
+                blkExpl = "EtherScan";
             }
             Console.WriteLine("Input valid API key");
             apiKey = Console.ReadLine();

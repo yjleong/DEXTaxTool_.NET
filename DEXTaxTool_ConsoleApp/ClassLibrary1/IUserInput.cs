@@ -11,7 +11,7 @@ namespace UserInput
     {
         string EthAddress { get; }
         string ApiKey { get;}
-        BlockExplorerEnum BlkExpl { get; }
+        string BlkExpl { get; }
         void SetUserInput();
     }
 }

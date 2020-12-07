@@ -29,7 +29,7 @@ namespace UnitTestProject1
         }
         private string apiKey;
         private string ethAddress;
-        private BlockExplorerEnum blkExpl;
+        private string blkExpl;
 
         public string ApiKey
         {
@@ -39,7 +39,7 @@ namespace UnitTestProject1
             }
         }
 
-        public BlockExplorerEnum BlkExpl
+        public string BlkExpl
         {
             get
             {

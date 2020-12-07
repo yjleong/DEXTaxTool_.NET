@@ -21,7 +21,7 @@ namespace DEXTaxTool_ConsoleApp
                 var blkExplDict = new BlockExplorerEnumDict();
                 IUserInput userInput = new ConsoleInput(blkExplDict.EnumDict);
                 userInput.SetUserInput();
-                ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
+                ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict, blkExplDict.EnumDict);
                 var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
                 //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
                 Dictionary<TxnTypeEnum, ITxn[]> txns = txnParser.GetTxnObjs();
@@ -29,7 +29,7 @@ namespace DEXTaxTool_ConsoleApp
             catch (Exception e)
             {
                 //Handle exception better 
-                Console.WriteLine($"Exiting programm Last exception is message :{e.Message} ");
+                Console.WriteLine($"Exiting program Last exception is message :{e.Message} ");
             }
         }
     }
