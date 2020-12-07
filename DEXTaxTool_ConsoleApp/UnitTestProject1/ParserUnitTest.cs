@@ -115,11 +115,15 @@ namespace UnitTestProject1
             }
         }
         [TestMethod]
+        [Ignore]
         public void TxnParser_GetTxnObjs_Success()
         {
-            ITxnRequester stubTxnRequester = new ...;
-            ITxnMapper stubTxnMapper = new ...;
-            var txnParser = new TxnParser(stubTxnRequester, stubTxnMapper);
+            //Think of how to test it. GetTxnObjs basically helps pass between objects to TxnRequester and TxnMapper and outputs the results of both as a Dictionary
+            //Mock up Dictionary return and compare it to output? 
+
+            //ITxnRequester stubTxnRequester = new ...;
+            //ITxnMapper stubTxnMapper = new ...;
+            //var txnParser = new TxnParser(stubTxnRequester, stubTxnMapper);
         }
 
     }

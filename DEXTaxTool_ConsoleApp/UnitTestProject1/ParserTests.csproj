@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="StubTxnReqester.cs" />
     <Compile Include="TestEtherScanTxnProvider.cs" />
     <Compile Include="ParserUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

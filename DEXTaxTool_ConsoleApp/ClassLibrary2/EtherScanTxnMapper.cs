@@ -25,7 +25,9 @@ namespace Parser
             if (isError(jObj))
             {
                 throw getErrorMessage(jObj);
+                
             }
+            //TODO: can be generalized if can map TxnTypeEnum to Type of TxnResponse classes.
             switch (txnTypeEnum)
             {
                 case TxnTypeEnum.Normal:
