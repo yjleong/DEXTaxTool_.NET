@@ -78,10 +78,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="EtherScanJSON\EtherScanRateBlankOrDefaultApiKey.json" />
     <None Include="EtherScanJSON\EtherScanNormalTxns.json" />
     <None Include="EtherScanJSON\EtherScanErc20Txns.json" />
     <None Include="EtherScanJSON\EtherScanInternalTxns.json" />
-    <None Include="EtherScanJSON\EtherScanBadTxnJson.json" />
+    <None Include="EtherScanJSON\EtherScanBadStatus.json" />
     <None Include="EtherScanJSON\UserInputEtherScan.json" />
     <None Include="packages.config" />
   </ItemGroup>

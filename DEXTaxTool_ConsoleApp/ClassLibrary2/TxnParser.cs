@@ -41,7 +41,7 @@ namespace Parser
                 return txnDict;
            }
             //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
-            catch (ArgumentException e) when (e.ParamName != "HttpRequestException")
+            catch (Exception e)
             {
                 //handle exception better
                 Console.WriteLine("\nException Caught!");

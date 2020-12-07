@@ -22,7 +22,7 @@ namespace Parser
             //Need to handle better if unsuccessful at getting the account txn information
             //Need a better way to structure the classes and objects for deserializing
             JObject jObj = JObject.Parse(JsonStr);
-            if (jObj["status"].ToString() == "0")
+            if (isError(jObj))
             {
                 throw getErrorMessage(jObj);
             }
@@ -38,8 +38,15 @@ namespace Parser
                     InternalTxnResponse internalTxnResponse = JsonConvert.DeserializeObject<InternalTxnResponse>(JsonStr);
                     return internalTxnResponse.result;
                 default:
-                    throw new Exception("MapToTxn(): unrecognizable TxnTypeEnum. Can't deserialize");
+                    throw new Exception($"MapToTxn(): unrecognizable TxnTypeEnum; {txnTypeEnum.ToString()} Can't deserialize");
             }
+        }
+
+        private bool isError(JObject jObj)
+        {
+            return jObj["status"].ToString() == "0" 
+                || jObj["message"].ToString().Equals("OK-Missing/Invalid API Key, rate limit of 1/5sec applied") 
+                ? true : false;
         }
         private Exception getErrorMessage(JObject jObj)
         {

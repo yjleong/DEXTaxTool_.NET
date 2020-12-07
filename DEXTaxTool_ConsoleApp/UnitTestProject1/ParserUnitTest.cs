@@ -32,30 +32,10 @@ namespace UnitTestProject1
             {
                contents = file.ReadToEnd();
             }
-            var txns = new ITxn[0];
+            ITxn[] txns;
             txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal,contents);
-            //Might be better to compare to a mock ITxn[]?
-            Assert.IsTrue(txns.Length != 0);
-        }
-        [TestMethod]
-        public void EtherScanTxnMapper_BadJson_NormalTxnMap()
-       {
-            //try
-            //{
-            //    var ethScanTxnMapper = new EtherScanTxnMapper();
-            //    string contents;
-            //    using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanBadTxnJson.json"))
-            //    {
-            //        contents = file.ReadToEnd();
-            //    }
-            //    var txns = new ITxn[0];
-            //    txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal, contents);
-            //    throw new Exception("Exception: Mapped bad JSON to ITxn");
-            //}
-            //catch (Exception e)
-            //{
-            //    Assert.IsTrue(true);
-            //}
+            //Might be better to compare to a mock ITxn[]? 
+            Assert.IsNotNull(txns);
         }
 
         [TestMethod]
@@ -67,10 +47,10 @@ namespace UnitTestProject1
             {
                 contents = file.ReadToEnd();
             }
-            var txns = new ITxn[0];
+            ITxn[] txns;
             txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Erc20, contents);
             //Might be better to compare to a mock ITxn[]?
-            Assert.IsTrue(txns.Length != 0);
+            Assert.IsNotNull(txns);
         }
 
         [TestMethod]
@@ -82,12 +62,65 @@ namespace UnitTestProject1
             {
                 contents = file.ReadToEnd();
             }
-            var txns = new ITxn[0];
+            ITxn[] txns;
             txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Erc20, contents);
             //Might be better to compare to a mock ITxn[]?
-            Assert.IsTrue(txns.Length != 0);
+            Assert.IsNotNull(txns);
         }
 
+        [TestMethod]
+        public void EtherScanTxnMapper_ErrorJson_BadStatus()
+        {
+            try
+            {
+                var ethScanTxnMapper = new EtherScanTxnMapper();
+                string contents;
+                using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanBadStatus.json"))
+                {
+                    contents = file.ReadToEnd();
+                }
+                ITxn[] txns;
+                txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal, contents);
+                //fail case if MapToTxn does not throw an exception
+                throw new Exception();
+            }
+            catch (Exception e)
+            {
+                //TODO:
+                //Need to handle this exception better at class level and with this case, shouldn't be checking strings and should be handling exception class itself
+                Assert.IsTrue(e.Message.Contains("Problem with getting JSON from EtherScan"));
+            }
+        }
+        [TestMethod]
+        public void EtherScanTxnMapper_ErrorJson_RateLimit_Or_DefaultApiKey()
+        {
+            try
+            {
+                var ethScanTxnMapper = new EtherScanTxnMapper();
+                string contents;
+                using (var file = File.OpenText(@"..\..\EtherScanJSON\EtherScanRateBlankOrDefaultApiKey.json"))
+                {
+                    contents = file.ReadToEnd();
+                }
+                ITxn[] txns;
+                txns = ethScanTxnMapper.MapToTxn(TxnTypeEnum.Normal, contents);
+                //fail case if MapToTxn does not throw an exception
+                throw new Exception();
+            }
+            catch (Exception e)
+            {
+                //TODO:
+                //Need to handle this exception better at class level and with this case, shouldn't be checking strings and should be handling exception class itself
+                Assert.IsTrue(e.Message.Contains("OK-Missing/Invalid API Key, rate limit of 1/5sec applied"));
+            }
+        }
+        [TestMethod]
+        public void TxnParser_GetTxnObjs_Success()
+        {
+            ITxnRequester stubTxnRequester = new ...;
+            ITxnMapper stubTxnMapper = new ...;
+            var txnParser = new TxnParser(stubTxnRequester, stubTxnMapper);
+        }
 
     }
 }
