@@ -13,6 +13,7 @@ namespace UserInput
         private string apiKey;
         private string ethAddress;
         private BlockExplorerEnum blkExpl;
+        private Dictionary<string, BlockExplorerEnum> enumDict;
         public string ApiKey
         {
             get
@@ -36,6 +37,10 @@ namespace UserInput
                 return ethAddress; 
             }
         }
+        public ConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict)
+        {
+            this.enumDict = blkExplDict;
+        }
 
         public void SetUserInput()
         {
@@ -43,9 +48,23 @@ namespace UserInput
             //add checks for valid address and api key
             Console.WriteLine("Input valid Ethereum address:");
             ethAddress = Console.ReadLine();
-            Console.WriteLine("EtherScan is only block explorer supported");
-            blkExpl = BlockExplorerEnum.EtherScan;
-            Console.WriteLine("Input valid API EtherScan API key");
+            Console.WriteLine("Input block explorer to use. Available block explorers are:");
+            foreach(var kvp in enumDict)
+            {
+                Console.WriteLine(kvp.Key);
+            }
+            var tmpStr = Console.ReadLine();
+            BlockExplorerEnum tmpEnum;
+            if (enumDict.TryGetValue(tmpStr, out tmpEnum))
+            {
+                blkExpl = tmpEnum;
+            }
+            else
+            {
+                Console.WriteLine("Input not recognized. Defaulting to EtherScan");
+                blkExpl = BlockExplorerEnum.EtherScan;
+            }
+            Console.WriteLine("Input valid API key");
             apiKey = Console.ReadLine();
         }
     }

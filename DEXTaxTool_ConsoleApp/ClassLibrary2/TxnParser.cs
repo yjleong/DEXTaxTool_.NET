@@ -39,9 +39,8 @@ namespace Parser
                     txnDict.Add(txnType, txns);
                 }
                 return txnDict;
-                //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
-                throw new NotImplementedException();
-            }
+           }
+            //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
             catch (ArgumentException e) when (e.ParamName != "HttpRequestException")
             {
                 //handle exception better

@@ -18,7 +18,8 @@ namespace DEXTaxTool_ConsoleApp
                 //require some input to enable End to End run with default values? 
                 //Include some JSON deserializer that can read the values and load it into ConsoleInput
                 var blkExplURL = new BlockExplorerURL();
-                IUserInput userInput = new ConsoleInput();
+                var blkExplDict = new BlockExplorerEnumDict();
+                IUserInput userInput = new ConsoleInput(blkExplDict.EnumDict);
                 userInput.SetUserInput();
                 ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
                 var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());

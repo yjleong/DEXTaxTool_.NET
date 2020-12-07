@@ -9,7 +9,7 @@ using System.IO;
 
 namespace UnitTestProject1
 {
-    public class TestUserInput 
+    public class TestUserInput :IUserInput
     {
         public TestUserInput(string fileName)
         {

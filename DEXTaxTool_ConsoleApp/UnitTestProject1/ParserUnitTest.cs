@@ -14,7 +14,7 @@ namespace UnitTestProject1
             {
 
             }
-            catch
+            catch()
             {
 
             }
