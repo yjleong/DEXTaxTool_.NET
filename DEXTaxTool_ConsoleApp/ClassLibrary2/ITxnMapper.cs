@@ -9,6 +9,6 @@ namespace Parser
 {
     public interface ITxnMapper
     {
-        ITxn[] MapToTxn(TxnTypeEnum txnTypeEnum, string JSONstr);
+        ITxn[] MapToTxn(TxnTypeEnum txnTypeEnum, string JsonStr);
     }
 }

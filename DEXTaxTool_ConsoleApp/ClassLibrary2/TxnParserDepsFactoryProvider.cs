@@ -21,7 +21,7 @@ namespace Parser
                     Dictionary<TxnTypeEnum, string> blkExplURL;
                     if (blkExplURLDict.TryGetValue(BlockExplorerEnum.EtherScan, out blkExplURL))
                     {
-                        return new EtherScanFactory(userInput, blkExplURL);
+                        return new EtherScanDepsFactory(userInput, blkExplURL);
                     }
                     //TODO:
                     //Catch cases where cant get URLs and no enums. 

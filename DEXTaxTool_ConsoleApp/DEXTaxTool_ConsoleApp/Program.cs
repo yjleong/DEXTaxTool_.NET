@@ -23,7 +23,7 @@ namespace DEXTaxTool_ConsoleApp
                 ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict);
                 var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
                 //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
-                Dictionary<TxnTypeEnum, List<ITxn>> txns = txnParser.deserializeJSON();
+                Dictionary<TxnTypeEnum, ITxn[]> txns = txnParser.GetTxnObjs();
             }
             catch (Exception e)
             {

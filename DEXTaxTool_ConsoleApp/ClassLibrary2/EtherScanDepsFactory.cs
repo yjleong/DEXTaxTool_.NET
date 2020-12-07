@@ -12,11 +12,11 @@ namespace Parser
     /// Abstract factory for EtherScan.
     /// Provides EtherScan specific TxnMapper and TxnRequester objects for the Parser object to use
     /// </summary>
-    class EtherScanFactory : ITxnParserDepsFactory
+    class EtherScanDepsFactory : ITxnParserDepsFactory
     {
         private IUserInput userInput;
         Dictionary<TxnTypeEnum, string> blkExplURL;
-        public EtherScanFactory(IUserInput userInput,  Dictionary<TxnTypeEnum, string> blkExplURL)
+        public EtherScanDepsFactory(IUserInput userInput,  Dictionary<TxnTypeEnum, string> blkExplURL)
         {
             this.userInput = userInput;
             this.blkExplURL = blkExplURL;

@@ -9,7 +9,7 @@ namespace BlockExplorerInfo
         public enum TxnTypeEnum
         {
             Normal,
-            ERC20,
+            Erc20,
             Internal
         }
 }

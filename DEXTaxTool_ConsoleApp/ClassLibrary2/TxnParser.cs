@@ -21,23 +21,24 @@ namespace Parser
             this.txnMapper = txnMapper;
         }
 
-        public Dictionary<TxnTypeEnum, List<ITxn>> deserializeJSON()
+        public Dictionary<TxnTypeEnum, ITxn[]> GetTxnObjs()
         {
             try
             {
-                var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
+                var txnDict = new Dictionary<TxnTypeEnum, ITxn[]>();
                 var taskList = new List<Task<string>>();
                 foreach (TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
                     taskList.Add(txnRequester.GetTxnsAsync(txnType));
                 }
-                var result = Task.WhenAll(taskList).Result;
-                foreach(var res in result)
+                //Double check if this is good practice
+                string[] JsonTxnStrings = Task.WhenAll(taskList).Result;
+                foreach(TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
-
+                    var txns = txnMapper.MapToTxn(txnType, JsonTxnStrings[(int)txnType]);
+                    txnDict.Add(txnType, txns);
                 }
-                //then use mapper to get ITxn[] back
-
+                return txnDict;
                 //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
                 throw new NotImplementedException();
             }
@@ -49,33 +50,5 @@ namespace Parser
                 throw e;
             }
         }
-
-        public Task deserializeJSON_testing ()
-        {
-            try
-            {
-                var txnDict = new Dictionary<TxnTypeEnum, List<ITxnMapper>>();
-                var taskList = new List<Task<string>>();
-                foreach (TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
-                {
-                    taskList.Add(txnRequester.GetTxnsAsync(txnType));
-                }
-
-                //then use mapper to get ITxn[] back
-
-                //need to be able to handle situations where there's bad connection/can't get any txn from block explorer
-                throw new NotImplementedException();
-            }
-            catch (ArgumentException e) when (e.ParamName != "HttpRequestException")
-            {
-                //handle exception better
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine($"Message :{e.Message} ");
-                throw e;
-            }
-        }
-
-
-
     }
 }

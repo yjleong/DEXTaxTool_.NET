@@ -34,12 +34,17 @@ namespace Parser
                 case TxnTypeEnum.Internal:
                     uri = urlDict[TxnTypeEnum.Internal];
                     break;
-                case TxnTypeEnum.ERC20:
-                    uri = urlDict[TxnTypeEnum.ERC20];
+                case TxnTypeEnum.Erc20:
+                    uri = urlDict[TxnTypeEnum.Erc20];
                     break;
             }
             uri = uri.Replace("<ETHAddressHere>", userInput.EthAddress);
             uri = uri.Replace("<APIKeyHere>", userInput.ApiKey);
+            return await getRequest(uri);
+        }
+
+        private async Task<string> getRequest(string uri)
+        {
             try
             {
                 HttpResponseMessage response = await client.GetAsync(uri);
