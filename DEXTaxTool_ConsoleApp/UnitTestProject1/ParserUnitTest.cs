@@ -8,9 +8,16 @@ namespace UnitTestProject1
     public class ParserTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void EtherScanTxnRequester_Successful_Connection()
         {
+            try
+            {
 
+            }
+            catch
+            {
+
+            }
         }
     }
 }
