@@ -6,31 +6,21 @@ using System.Threading.Tasks;
 using BlockExplorerInfo;
 using UserInput;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace UnitTestProject1
 {
     public class TestUserInput :IUserInput
     {
-        public TestUserInput(string fileName)
-        {
-            using (var file = File.OpenText(fileName))
-            {
-                string contents = file.ReadToEnd();
-                List<TestKey> keys = JsonConvert.DeserializeObject<List<TestKey>>(contents);
-                if (injectedErrors != null && injectedErrors.Any())
-                {
-                    foreach (var key in keys)
-                    {
-                        key._injectedErrors = injectedErrors;
-                    }
-                }
-                KeyList = keys.Cast<IKeyData>().ToList();
-            }
-        }
+
+        private string fileName;
         private string apiKey;
         private string ethAddress;
         private string blkExpl;
-
+        public TestUserInput(string fileName)
+        {
+            this.fileName = fileName;
+        }
         public string ApiKey
         {
             get
@@ -57,7 +47,14 @@ namespace UnitTestProject1
 
         public void SetUserInput()
         {
-            
+            using (var file = File.OpenText(fileName))
+            {
+                string contents = file.ReadToEnd();
+                JObject jObj = JObject.Parse(contents);
+                apiKey = jObj["apiKey"].ToString();
+                ethAddress = jObj["ethAddress"].ToString() ;
+                blkExpl = jObj["blkExpl"].ToString();
+            }
         }
     }
 }

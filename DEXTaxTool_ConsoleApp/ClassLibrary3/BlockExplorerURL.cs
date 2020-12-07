@@ -11,7 +11,7 @@ namespace BlockExplorerInfo
         public Dictionary<BlockExplorerEnum, Dictionary<TxnTypeEnum, string>> BlockExplorerURLDict;
 
         // TODO:
-        // Get URL's from DB in future and have it be connected to BlockExploereEnumDict
+        // Get URL's from DB in future and have it be connected to BlockExploereEnumDict or load up some form of JSON
         public BlockExplorerURL()
         {
             var etherScanURL = new Dictionary<TxnTypeEnum, string>();

@@ -77,7 +77,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="UserInputDefault.json" />
+    <None Include="EtherScanJSON\EtherScanNormalTxns.json" />
+    <None Include="EtherScanJSON\UserInputEtherScan.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

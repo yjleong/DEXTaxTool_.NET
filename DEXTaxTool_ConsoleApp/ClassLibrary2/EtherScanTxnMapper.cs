@@ -19,7 +19,7 @@ namespace Parser
         public ITxn[] MapToTxn(TxnTypeEnum txnTypeEnum, string JsonStr)
         {
             //TODO:
-            //Need to handle bettwe if unsuccessful at getting the account txn information
+            //Need to handle better if unsuccessful at getting the account txn information
             //Need a better way to structure the classes and objects for deserializing
             JObject jObj = JObject.Parse(JsonStr);
             if (jObj["status"].ToString() == "0")
@@ -37,8 +37,9 @@ namespace Parser
                 case TxnTypeEnum.Internal:
                     InternalTxnResponse internalTxnResponse = JsonConvert.DeserializeObject<InternalTxnResponse>(JsonStr);
                     return internalTxnResponse.result;
+                default:
+                    throw new Exception("MapToTxn(): unrecognizable TxnTypeEnum. Can't deserialize");
             }
-            throw new Exception("MapToTxn(): unrecognizable TxnTypeEnum. Can't deserialize");
         }
         private Exception getErrorMessage(JObject jObj)
         {
