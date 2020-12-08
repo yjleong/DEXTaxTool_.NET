@@ -36,6 +36,11 @@ namespace Parser
                 foreach(TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
                     var txns = txnMapper.MapToTxn(txnType, JsonTxnStrings[(int)txnType]);
+                    //Check if have price and set price
+                    foreach(var txn in txns)
+                    {
+
+                    } 
                     txnDict.Add(txnType, txns);
                 }
                 return txnDict;

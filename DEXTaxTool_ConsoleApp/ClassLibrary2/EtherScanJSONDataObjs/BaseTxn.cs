@@ -18,15 +18,17 @@ namespace Parser.EtherScanJSONDataObjs
         public string input;
         public string contractAddress;
         public string gasUsed;
+        //below are porperties not native to EtherScan JSON
+        public string price;
 
         public long GetTimeStamp()
         {
             return long.Parse(timeStamp);
         }
 
-        public long GetHash()
+        public string GetHash()
         {
-            return long.Parse(hash);
+            return hash;
         }
 
         public string GetFromAddress()
@@ -45,5 +47,20 @@ namespace Parser.EtherScanJSONDataObjs
         }
 
         abstract public string GetToken();
+
+        public string GetPrice()
+        {
+            return price;
+        }
+
+        public void SetPrice(string price)
+        {
+            this.price = price;
+        }
+
+        public string GetDateIso8601()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

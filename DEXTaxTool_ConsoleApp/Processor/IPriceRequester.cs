@@ -8,6 +8,6 @@ namespace Processor
 {
     public interface IPriceRequester
     {
-        double GetPrice(string tokenSymbol);
+        string GetPrice(string tokenSymbol);
     }
 }

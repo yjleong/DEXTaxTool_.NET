@@ -12,11 +12,13 @@ namespace Parser
     public interface ITxn
     {
         long GetTimeStamp();
-        long GetHash();
+        string GetHash();
         string GetFromAddress();
         string GetToAddress();
         double GetValue();
         string GetToken();
-        
+        string GetPrice();
+        void SetPrice(string price);
+        string GetDateIso8601();
     }
 }
