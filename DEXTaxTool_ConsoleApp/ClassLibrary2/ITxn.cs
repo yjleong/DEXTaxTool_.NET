@@ -19,6 +19,6 @@ namespace Parser
         string GetToken();
         string GetPrice();
         void SetPrice(string price);
-        string GetDateIso8601(long addDays = 0);
+        string GetDateIso8601(string format, long addSeconds = 0);
     }
 }

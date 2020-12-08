@@ -9,7 +9,7 @@ using BlockExplorerInfo;
 namespace Parser
 {
     /// <summary>
-    /// Parser object that gets all required transactions from block explorer with HTTP GET and parses them into ITxn objects 
+    /// Parser object that gets all required transactions from block explorer and price feed, parses them, and outputs ITxn objects 
     /// </summary>
     public class TxnParser
     {
@@ -44,16 +44,19 @@ namespace Parser
                 foreach(TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
                     var txns = txnMapper.MapToTxn(txnType, JsonTxnStrings[(int)txnType]);
-                    //Check if have price and set price
-                    foreach(var txn in txns)
+                    if (priceRequester != null)
                     {
-                        if (string.IsNullOrEmpty(txn.GetPrice()))
+                        //Check if have price and set price
+                        foreach (var txn in txns)
                         {
-                            //TODO: Figure out how to do async get and set price in txn 
-                            string price = priceRequester.GetPrice(txn);
-                            txn.SetPrice(price);
-                        }
-                    } 
+                            if (string.IsNullOrEmpty(txn.GetPrice()))
+                            {
+                                //TODO: Figure out how to do async get and set price in txn 
+                                string price = priceRequester.GetPrice(txn);
+                                txn.SetPrice(price);
+                            }
+                        }  
+                    }
                     txnDict.Add(txnType, txns);
                 }
                 return txnDict;

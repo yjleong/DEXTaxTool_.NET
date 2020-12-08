@@ -125,12 +125,5 @@ namespace UnitTestProject1
             //ITxnMapper stubTxnMapper = new ...;
             //var txnParser = new TxnParser(stubTxnRequester, stubTxnMapper);
         }
-
-        [TestMethod]
-        public void blasdfh()
-        {
-            //var dt = new DateTime;
-        }
-
     }
 }

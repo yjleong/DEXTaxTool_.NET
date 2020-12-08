@@ -58,10 +58,10 @@ namespace Parser.EtherScanJSONDataObjs
             this.price = price;
         }
 
-        public string GetDateIso8601(long addDays = 0)
+        public string GetDateIso8601(string format, long addSeconds = 0)
         {
-            //datetime.ToString()
-            throw new NotImplementedException();
+            var dt = DateTimeOffset.FromUnixTimeSeconds(1582271490 + addSeconds).DateTime;
+            return dt.ToString(format);
         }
     }
 }

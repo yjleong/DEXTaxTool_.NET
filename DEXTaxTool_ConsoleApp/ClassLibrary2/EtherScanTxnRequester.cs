@@ -25,19 +25,7 @@ namespace Parser
 
         public async Task<string> GetTxnsAsync(TxnTypeEnum txnTypeEnum)
         {
-            string uri = "";
-            switch (txnTypeEnum)
-            {
-                case TxnTypeEnum.Normal:
-                    uri = urlDict[TxnTypeEnum.Normal];
-                    break;
-                case TxnTypeEnum.Internal:
-                    uri = urlDict[TxnTypeEnum.Internal];
-                    break;
-                case TxnTypeEnum.Erc20:
-                    uri = urlDict[TxnTypeEnum.Erc20];
-                    break;
-            }
+            string uri = urlDict[txnTypeEnum];
             uri = uri.Replace("<ETHAddressHere>", userInput.EthAddress);
             uri = uri.Replace("<APIKeyHere>", userInput.ApiKey);
             return await getRequest(uri);
