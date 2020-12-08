@@ -22,8 +22,9 @@ namespace DEXTaxTool_ConsoleApp
                 var priceFeed = new PriceFeed();
                 IUserInput userInput = new ConsoleInput(blkExpl.GetEnumDict(),priceFeed.GetEnumDict());
                 userInput.SetUserInput();
-                IMapper_RequesterFactory txnParserDepsFactory = Mapper_RequesterFactoryProvider.GetFactory(userInput, blkExpl);
-                var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
+                IMapper_RequesterFactory mapper_RequesterFactory = Mapper_RequesterFactoryProvider.GetFactory(userInput, blkExpl);
+                IPriceRequesterFactory priceRequesterFactory = PriceRequesterFactoryProvider.GetFactory(userInput, priceFeed);
+                var txnParser = new TxnParser(mapper_RequesterFactory.GetTxnRequester(), mapper_RequesterFactory.GetTxnMapper(), priceRequesterFactory.GetPriceRequester());
                 //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
                 Dictionary<TxnTypeEnum, ITxn[]> txns = txnParser.GetTxnObjs();
             }
@@ -31,6 +32,7 @@ namespace DEXTaxTool_ConsoleApp
             {
                 //Handle exception better 
                 Console.WriteLine($"Exiting program Last exception is message :{e.Message} ");
+                throw e;
             }
         }
     }

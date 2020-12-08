@@ -27,7 +27,6 @@ namespace Parser
             //TODO:
             //Catch cases where cant get URLs and no enums. Handle exceptions better in general 
             throw new Exception($"Exception: Can't get API end points for {blkExplEnum}");
-            
         }
     }
 }

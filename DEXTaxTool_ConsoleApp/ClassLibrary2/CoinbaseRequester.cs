@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StaticHttpClient;
 using System.Net.Http;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Parser
 {
@@ -27,9 +28,11 @@ namespace Parser
             uri = uri.Replace("<start_Iso8601>", txn.GetDateIso8601(dateFormat));
             uri = uri.Replace("<end_Iso8601>", txn.GetDateIso8601(dateFormat, 60)); //add 60 seconds to ensure getting prices within minute
             //TODO: Replace with better form of wait when async implemented
-            //Wait 400ms because API rate limitation 3 request/sec
-            Thread.Sleep(400);
-            return getRequest(uri);
+            //Wait 500ms because API rate limitation 3 request/sec
+            Thread.Sleep(5000);
+            Console.WriteLine($"GET request: {uri}");
+            var JsonStr = getRequest(uri);
+            return extractPrice(JsonStr);
         }
 
         private string getRequest(string uri)
@@ -49,7 +52,19 @@ namespace Parser
                 Console.WriteLine($"Message :{e.Message} ");
                 throw e;
             }
-
+        }
+        private string extractPrice(string JsonStr)
+        {
+            try
+            {
+                double[][] priceArr = JsonConvert.DeserializeObject<double[][]>(JsonStr);
+                return ((priceArr[0][1] + priceArr[0][2] + priceArr[0][3] + priceArr[0][4]) / 4).ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception while trying to get/extract price from Coinbase");
+                throw e;
+            }
         }
     }
 }

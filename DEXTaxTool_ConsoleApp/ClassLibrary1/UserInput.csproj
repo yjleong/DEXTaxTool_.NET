@@ -42,9 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleInput.cs" />
-    <Compile Include="PriceFeedConsoleInput.cs" />
     <Compile Include="IUserInput.cs" />
-    <Compile Include="IPriceFeedUserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

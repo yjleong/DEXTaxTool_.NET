@@ -22,7 +22,7 @@ namespace Parser
             this.txnMapper = txnMapper;
             this.priceRequester = priceRequester;
         }
-        //TO remove for above ctor
+        //Old ctor
         public TxnParser(ITxnRequester txnRequester, ITxnMapper txnMapper)
         {
             this.txnRequester = txnRequester;
@@ -35,8 +35,10 @@ namespace Parser
             {
                 var txnDict = new Dictionary<TxnTypeEnum, ITxn[]>();
                 var taskList = new List<Task<string>>();
+                Console.WriteLine("Getting transactions from block explorer");
                 foreach (TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
+                    Console.WriteLine($"Getting ${txnType.ToString()}");
                     taskList.Add(txnRequester.GetTxnsAsync(txnType));
                 }
                 //Double check if this is good practice
@@ -52,7 +54,9 @@ namespace Parser
                             if (string.IsNullOrEmpty(txn.GetPrice()))
                             {
                                 //TODO: Figure out how to do async get and set price in txn 
+                                Console.WriteLine($"Getting price for {txn.GetToken()} at timestamp {txn.GetTimeStamp()}, hash : {txn.GetHash()}");
                                 string price = priceRequester.GetPrice(txn);
+                                Console.WriteLine($"Price: {price}");
                                 txn.SetPrice(price);
                             }
                         }  

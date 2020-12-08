@@ -84,9 +84,9 @@ namespace UserInput
                 Console.WriteLine(kvp.Key);
             }
             tmpStr = Console.ReadLine();
-            if (blkExplEnumDict.ContainsKey(tmpStr))
+            if (priceFeedEnumDict.ContainsKey(tmpStr))
             {
-                blkExpl = tmpStr;
+                priceFeed = tmpStr;
             }
             else
             {

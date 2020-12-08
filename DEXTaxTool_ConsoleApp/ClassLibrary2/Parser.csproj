@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoinbaseFactory.cs" />
     <Compile Include="CoinbaseRequester.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxn.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxnResponse.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="EtherScanJSONDataObjs\NormalTxnResponse.cs" />
     <Compile Include="EtherScanTxnMapper.cs" />
     <Compile Include="IPriceRequester.cs" />
+    <Compile Include="IPriceRequesterFactory.cs" />
     <Compile Include="Mapper_RequesterFactoryProvider.cs" />
     <Compile Include="EtherScanFactory.cs" />
     <Compile Include="EtherScanTxnRequester.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="ITxnMapper.cs" />
     <Compile Include="ITxn.cs" />
     <Compile Include="ITxnRequester.cs" />
+    <Compile Include="PriceRequesterFactoryProvider.cs" />
     <Compile Include="TxnParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +81,10 @@
     <ProjectReference Include="..\ClassLibrary4\HTTPClientProvider.csproj">
       <Project>{2282eaf3-9a26-45e3-b682-60feebc13cc4}</Project>
       <Name>HTTPClientProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PriceFeedInfo\PriceFeedInfo.csproj">
+      <Project>{390560db-975c-4d74-b434-920ff3b2fdc1}</Project>
+      <Name>PriceFeedInfo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
