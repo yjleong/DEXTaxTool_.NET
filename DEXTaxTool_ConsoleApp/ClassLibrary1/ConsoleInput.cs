@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlockExplorerInfo;
+using PriceFeedInfo;
 
 
 namespace UserInput
 {
-    public class BlockExplorerConsoleInput : IBlockExplorerUserInput
+    public class ConsoleInput : IUserInput
     {
         private string apiKey;
         private string ethAddress;
         private string blkExpl;
-        private Dictionary<string, BlockExplorerEnum> enumDict;
+        private string priceFeed;
+        private Dictionary<string, BlockExplorerEnum> blkExplEnumDict;
+        private Dictionary<string, PriceFeedEnum> priceFeedEnumDict;
         public string ApiKey
         {
             get
@@ -37,9 +40,19 @@ namespace UserInput
                 return ethAddress; 
             }
         }
-        public BlockExplorerConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict)
+
+        public string PriceFeed
         {
-            enumDict = blkExplDict;
+            get
+            {
+                return priceFeed;
+            }
+        }
+
+        public ConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict, Dictionary<string, PriceFeedEnum> priceFeedDict)
+        {
+            blkExplEnumDict = blkExplDict;
+            priceFeedEnumDict = priceFeedDict;
         }
 
         public void SetUserInput()
@@ -49,12 +62,12 @@ namespace UserInput
             Console.WriteLine("Input valid Ethereum address:");
             ethAddress = Console.ReadLine();
             Console.WriteLine("Input block explorer to use. Available block explorers are:");
-            foreach(var kvp in enumDict)
+            foreach(var kvp in blkExplEnumDict)
             {
                 Console.WriteLine(kvp.Key);
             }
             var tmpStr = Console.ReadLine();
-            if (enumDict.ContainsKey(tmpStr))
+            if (blkExplEnumDict.ContainsKey(tmpStr))
             {
                 blkExpl = tmpStr;
             }
@@ -63,8 +76,23 @@ namespace UserInput
                 Console.WriteLine("Input not recognized. Defaulting to EtherScan");
                 blkExpl = "EtherScan";
             }
-            Console.WriteLine("Input valid API key");
+            Console.WriteLine("Input valid API key for block explorer");
             apiKey = Console.ReadLine();
+            Console.WriteLine("Input price feed to use. Available price feed are:");
+            foreach (var kvp in priceFeedEnumDict)
+            {
+                Console.WriteLine(kvp.Key);
+            }
+            tmpStr = Console.ReadLine();
+            if (blkExplEnumDict.ContainsKey(tmpStr))
+            {
+                blkExpl = tmpStr;
+            }
+            else
+            {
+                Console.WriteLine("Input not recognized. Defaulting to Coinbase");
+                priceFeed = "Coinbase";
+            }
         }
     }
 }

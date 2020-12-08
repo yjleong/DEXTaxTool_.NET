@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UserInput;
 using BlockExplorerInfo;
+using PriceFeedInfo;
 using Parser;
 
 namespace DEXTaxTool_ConsoleApp
@@ -17,11 +18,11 @@ namespace DEXTaxTool_ConsoleApp
             {
                 //require some input to enable End to End run with default values? 
                 //Include some JSON deserializer that can read the values and load it into ConsoleInput
-                var blkExplURL = new BlockExplorerURL();
-                var blkExplDict = new BlockExplorerEnumDict();
-                IBlockExplorerUserInput userInput = new BlockExplorerConsoleInput(blkExplDict.EnumDict);
+                var blkExpl = new BlockExplorer();
+                var priceFeed = new PriceFeed();
+                IUserInput userInput = new ConsoleInput(blkExpl.GetEnumDict(),priceFeed.GetEnumDict());
                 userInput.SetUserInput();
-                ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict, blkExplDict.EnumDict);
+                IMapper_RequesterFactory txnParserDepsFactory = Mapper_RequesterFactoryProvider.GetFactory(userInput, blkExpl);
                 var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());
                 //based on user input of what block explorer, need to use abstract factory pattern to provide appropriate requester and mapper 
                 Dictionary<TxnTypeEnum, ITxn[]> txns = txnParser.GetTxnObjs();

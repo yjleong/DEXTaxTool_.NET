@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockExplorerConsoleInput.cs" />
+    <Compile Include="ConsoleInput.cs" />
     <Compile Include="PriceFeedConsoleInput.cs" />
-    <Compile Include="IBlockExplorerUserInput.cs" />
+    <Compile Include="IUserInput.cs" />
     <Compile Include="IPriceFeedUserInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

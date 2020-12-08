@@ -68,6 +68,10 @@
       <Project>{b8eede40-8f94-43de-8571-e5f05a4c5be6}</Project>
       <Name>BlockExplorerInfo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PriceFeedInfo\PriceFeedInfo.csproj">
+      <Project>{390560db-975c-4d74-b434-920ff3b2fdc1}</Project>
+      <Name>PriceFeedInfo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

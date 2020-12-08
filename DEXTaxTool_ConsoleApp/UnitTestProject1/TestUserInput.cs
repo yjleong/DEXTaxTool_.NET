@@ -10,13 +10,14 @@ using Newtonsoft.Json.Linq;
 
 namespace UnitTestProject1
 {
-    public class TestUserInput :IBlockExplorerUserInput
+    public class TestUserInput :IUserInput
     {
 
         private string fileName;
         private string apiKey;
         private string ethAddress;
         private string blkExpl;
+        private string priceFeed;
         public TestUserInput(string fileName)
         {
             this.fileName = fileName;
@@ -42,6 +43,14 @@ namespace UnitTestProject1
             get
             {
                 return ethAddress;
+            }
+        }
+
+        public string PriceFeed
+        {
+            get
+            {
+                return priceFeed;
             }
         }
 

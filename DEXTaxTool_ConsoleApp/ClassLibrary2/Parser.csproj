@@ -56,10 +56,10 @@
     <Compile Include="EtherScanJSONDataObjs\NormalTxnResponse.cs" />
     <Compile Include="EtherScanTxnMapper.cs" />
     <Compile Include="IPriceRequester.cs" />
-    <Compile Include="TxnParserDepsFactoryProvider.cs" />
-    <Compile Include="EtherScanDepsFactory.cs" />
+    <Compile Include="Mapper_RequesterFactoryProvider.cs" />
+    <Compile Include="EtherScanFactory.cs" />
     <Compile Include="EtherScanTxnRequester.cs" />
-    <Compile Include="ITxnParserDepsFactory.cs" />
+    <Compile Include="IMapper_RequesterFactory.cs" />
     <Compile Include="ITxnMapper.cs" />
     <Compile Include="ITxn.cs" />
     <Compile Include="ITxnRequester.cs" />
