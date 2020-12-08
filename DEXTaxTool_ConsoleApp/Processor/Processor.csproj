@@ -44,9 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoinbaseRequester.cs" />
     <Compile Include="LifoStrategy.cs" />
-    <Compile Include="IPriceRequester.cs" />
     <Compile Include="ITaxStrategy.cs" />
     <Compile Include="FifoStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

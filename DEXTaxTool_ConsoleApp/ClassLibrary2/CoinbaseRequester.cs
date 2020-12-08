@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using StaticHttpClient;
 using System.Net.Http;
 
-namespace Processor
+namespace Parser
 {
     public class CoinbaseRequester : IPriceRequester
     {
@@ -17,12 +17,12 @@ namespace Processor
             client = HTTPClientProvider.httpClient;
             this.symbolUrl = symbolUrl;
         }
-        public string GetPrice(string tokenSymbol, string start_Iso8601, string end_Iso8601, string granularity = "60")
+        public string GetPrice(ITxn txn)
         {
-            string uri = symbolUrl[tokenSymbol];
-            uri = uri.Replace("<start_Iso8601>", start_Iso8601);
-            uri = uri.Replace("<end_Iso8601>", end_Iso8601);
-            uri = uri.Replace("<granularity>", granularity);
+            string uri = symbolUrl[txn.GetToken()];
+            uri = uri.Replace("<start_Iso8601>", txn.GetDateIso8601());
+            //uri = uri.Replace("<end_Iso8601>", end_Iso8601);
+            //Add wait here
             return getRequest(uri);
         }
 

@@ -10,12 +10,6 @@ namespace Processor
 {
     public class FifoStrategy : ITaxStrategy
     {
-        private IPriceRequester priceRequester;
-        public FifoStrategy(IPriceRequester priceRequester)
-        {
-            this.priceRequester = priceRequester;
-        }
-
         public void ProcessTxns(Dictionary<TxnTypeEnum, ITxn[]> txns)
         {
             throw new NotImplementedException();

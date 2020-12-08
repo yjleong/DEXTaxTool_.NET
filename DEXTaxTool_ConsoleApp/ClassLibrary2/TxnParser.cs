@@ -15,6 +15,14 @@ namespace Parser
     {
         private ITxnRequester txnRequester;
         private ITxnMapper txnMapper;
+        private IPriceRequester priceRequester;
+        public TxnParser(ITxnRequester txnRequester, ITxnMapper txnMapper, IPriceRequester priceRequester)
+        {
+            this.txnRequester = txnRequester;
+            this.txnMapper = txnMapper;
+            this.priceRequester = priceRequester;
+        }
+        //TO remove for above ctor
         public TxnParser(ITxnRequester txnRequester, ITxnMapper txnMapper)
         {
             this.txnRequester = txnRequester;
@@ -39,7 +47,12 @@ namespace Parser
                     //Check if have price and set price
                     foreach(var txn in txns)
                     {
-
+                        if (string.IsNullOrEmpty(txn.GetPrice()))
+                        {
+                            //TODO: Figure out how to do async get and set price in txn 
+                            string price = priceRequester.GetPrice(txn);
+                            txn.SetPrice(price);
+                        }
                     } 
                     txnDict.Add(txnType, txns);
                 }

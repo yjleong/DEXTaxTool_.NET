@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Processor
+namespace Parser
 {
     public interface IPriceRequester
     {
-        string GetPrice(string tokenSymbol);
+        string GetPrice(ITxn txn);
     }
 }

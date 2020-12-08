@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoinbaseRequester.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxn.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxnResponse.cs" />
     <Compile Include="EtherScanJSONDataObjs\Erc20Txn.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="EtherScanJSONDataObjs\NormalTxn.cs" />
     <Compile Include="EtherScanJSONDataObjs\NormalTxnResponse.cs" />
     <Compile Include="EtherScanTxnMapper.cs" />
+    <Compile Include="IPriceRequester.cs" />
     <Compile Include="TxnParserDepsFactoryProvider.cs" />
     <Compile Include="EtherScanDepsFactory.cs" />
     <Compile Include="EtherScanTxnRequester.cs" />
