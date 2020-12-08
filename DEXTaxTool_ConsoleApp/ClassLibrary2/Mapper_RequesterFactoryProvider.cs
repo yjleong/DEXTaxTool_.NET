@@ -15,13 +15,13 @@ namespace Parser
     {
         public static IMapper_RequesterFactory GetFactory(IUserInput userInput, BlockExplorer blkExpl)
         {
+            //Checks and gets block exploprer user specified
             BlockExplorerEnum blkExplEnum = blkExpl.GetBlockExplorerEnum(userInput.BlkExpl);
-            var blkExplURLDict = blkExpl.GetBlockExplorereUrlDict();
-            //check if user selected Block explorer is a valid block explorer that is supported
             switch (blkExplEnum)
             {
                 case BlockExplorerEnum.EtherScan:
-                    Dictionary<TxnTypeEnum, string> blkExplURL = blkExpl.GetBlockExplorerURL(blkExplEnum);
+                    //Get associated block explorerer API endpoint URLs
+                    var blkExplURL = blkExpl.GetBlockExplorerURL(blkExplEnum);
                     return new EtherScanFactory(userInput, blkExplURL);
             }
             //TODO:

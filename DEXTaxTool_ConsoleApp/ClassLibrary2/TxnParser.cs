@@ -41,7 +41,7 @@ namespace Parser
                     Console.WriteLine($"Getting ${txnType.ToString()}");
                     taskList.Add(txnRequester.GetTxnsAsync(txnType));
                 }
-                //Double check if this is good practice
+                //TODO: Double check if this is good practice
                 string[] JsonTxnStrings = Task.WhenAll(taskList).Result;
                 foreach(TxnTypeEnum txnType in Enum.GetValues(typeof(TxnTypeEnum)))
                 {
