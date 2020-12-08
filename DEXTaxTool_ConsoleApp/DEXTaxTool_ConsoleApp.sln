@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPClientProvider", "Class
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor", "Processor\Processor.csproj", "{A255FB82-B6C2-42F4-A657-9E6319BA9577}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceFeedInfo", "PriceFeedInfo\PriceFeedInfo.csproj", "{390560DB-975C-4D74-B434-920FF3B2FDC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A255FB82-B6C2-42F4-A657-9E6319BA9577}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A255FB82-B6C2-42F4-A657-9E6319BA9577}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A255FB82-B6C2-42F4-A657-9E6319BA9577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390560DB-975C-4D74-B434-920FF3B2FDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390560DB-975C-4D74-B434-920FF3B2FDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390560DB-975C-4D74-B434-920FF3B2FDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390560DB-975C-4D74-B434-920FF3B2FDC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

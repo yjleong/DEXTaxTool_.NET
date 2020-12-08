@@ -8,7 +8,7 @@ using BlockExplorerInfo;
 
 namespace UserInput
 {
-    public class ConsoleInput : IUserInput
+    public class BlockExplorerConsoleInput : IBlockExplorerUserInput
     {
         private string apiKey;
         private string ethAddress;
@@ -37,7 +37,7 @@ namespace UserInput
                 return ethAddress; 
             }
         }
-        public ConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict)
+        public BlockExplorerConsoleInput(Dictionary<string, BlockExplorerEnum> blkExplDict)
         {
             enumDict = blkExplDict;
         }

@@ -14,9 +14,9 @@ namespace Parser
     /// </summary>
     class EtherScanDepsFactory : ITxnParserDepsFactory
     {
-        private IUserInput userInput;
+        private IBlockExplorerUserInput userInput;
         Dictionary<TxnTypeEnum, string> blkExplURL;
-        public EtherScanDepsFactory(IUserInput userInput,  Dictionary<TxnTypeEnum, string> blkExplURL)
+        public EtherScanDepsFactory(IBlockExplorerUserInput userInput,  Dictionary<TxnTypeEnum, string> blkExplURL)
         {
             this.userInput = userInput;
             this.blkExplURL = blkExplURL;

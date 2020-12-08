@@ -13,9 +13,9 @@ namespace Parser
     public class EtherScanTxnRequester : ITxnRequester
     {
         private HttpClient client;
-        private IUserInput userInput; 
+        private IBlockExplorerUserInput userInput; 
         private Dictionary<TxnTypeEnum, string> urlDict;
-        public EtherScanTxnRequester(IUserInput userInput, Dictionary<TxnTypeEnum, string> urlDict)
+        public EtherScanTxnRequester(IBlockExplorerUserInput userInput, Dictionary<TxnTypeEnum, string> urlDict)
         {
             client = HTTPClientProvider.httpClient;
             this.userInput = userInput;

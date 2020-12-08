@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Processor
 {
-    public class TxnProcessor
+    public interface IPriceRequester
     {
+        double GetPrice(string tokenSymbol);
     }
 }

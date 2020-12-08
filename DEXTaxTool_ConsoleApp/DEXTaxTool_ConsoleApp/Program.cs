@@ -19,7 +19,7 @@ namespace DEXTaxTool_ConsoleApp
                 //Include some JSON deserializer that can read the values and load it into ConsoleInput
                 var blkExplURL = new BlockExplorerURL();
                 var blkExplDict = new BlockExplorerEnumDict();
-                IUserInput userInput = new ConsoleInput(blkExplDict.EnumDict);
+                IBlockExplorerUserInput userInput = new BlockExplorerConsoleInput(blkExplDict.EnumDict);
                 userInput.SetUserInput();
                 ITxnParserDepsFactory txnParserDepsFactory = TxnParserDepsFactoryProvider.GetFactory(userInput, blkExplURL.BlockExplorerURLDict, blkExplDict.EnumDict);
                 var txnParser = new TxnParser(txnParserDepsFactory.GetTxnRequester(), txnParserDepsFactory.GetTxnMapper());

@@ -7,7 +7,7 @@ using BlockExplorerInfo;
 
 namespace UserInput
 {
-    public interface IUserInput
+    public interface IBlockExplorerUserInput
     {
         string EthAddress { get; }
         string ApiKey { get;}

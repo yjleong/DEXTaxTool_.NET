@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxn.cs" />
     <Compile Include="EtherScanJSONDataObjs\BaseTxnResponse.cs" />
     <Compile Include="EtherScanJSONDataObjs\Erc20Txn.cs" />

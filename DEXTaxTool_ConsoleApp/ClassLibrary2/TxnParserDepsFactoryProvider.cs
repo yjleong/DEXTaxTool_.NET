@@ -13,7 +13,7 @@ namespace Parser
     /// </summary>
     public class TxnParserDepsFactoryProvider
     {
-        public static ITxnParserDepsFactory GetFactory(IUserInput userInput, Dictionary<BlockExplorerEnum, Dictionary<TxnTypeEnum, string>> blkExplURLDict, Dictionary<string, BlockExplorerEnum> enumDict)
+        public static ITxnParserDepsFactory GetFactory(IBlockExplorerUserInput userInput, Dictionary<BlockExplorerEnum, Dictionary<TxnTypeEnum, string>> blkExplURLDict, Dictionary<string, BlockExplorerEnum> enumDict)
         {
             BlockExplorerEnum blkExplEnum;
             //check if user selected Block explorer is a valid block explorer that is supported

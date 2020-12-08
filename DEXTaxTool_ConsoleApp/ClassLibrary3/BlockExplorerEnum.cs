@@ -27,6 +27,5 @@ namespace BlockExplorerInfo
             }
             EnumDict = enumDict;
         }
-
     }
 }

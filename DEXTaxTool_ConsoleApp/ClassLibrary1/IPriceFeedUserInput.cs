@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parser
+namespace UserInput
 {
-    class Class1
+    public interface IPriceFeedUserInput
     {
+        string PriceFeed { get; }
+        void SetUserInput();
     }
 }

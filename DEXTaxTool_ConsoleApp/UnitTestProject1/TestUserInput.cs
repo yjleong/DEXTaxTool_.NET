@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace UnitTestProject1
 {
-    public class TestUserInput :IUserInput
+    public class TestUserInput :IBlockExplorerUserInput
     {
 
         private string fileName;

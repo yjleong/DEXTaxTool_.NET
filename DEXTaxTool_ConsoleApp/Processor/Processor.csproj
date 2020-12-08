@@ -40,8 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TxnProcessor.cs" />
+    <Compile Include="CoinbaseRequester.cs" />
+    <Compile Include="LifoStrategy.cs" />
+    <Compile Include="IPriceRequester.cs" />
+    <Compile Include="ITaxStrategy.cs" />
+    <Compile Include="FifoStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary2\Parser.csproj">
+      <Project>{54594D87-7A7B-4D20-8A39-9324DD6E60AE}</Project>
+      <Name>Parser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary3\BlockExplorerInfo.csproj">
+      <Project>{B8EEDE40-8F94-43DE-8571-E5F05A4C5BE6}</Project>
+      <Name>BlockExplorerInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibrary4\HTTPClientProvider.csproj">
+      <Project>{2282eaf3-9a26-45e3-b682-60feebc13cc4}</Project>
+      <Name>HTTPClientProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
